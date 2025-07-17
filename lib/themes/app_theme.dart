@@ -1,41 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'colors.dart';
 
+/// Tema global minimalista y profesional para la app de reproductor de música.
 class AppTheme {
-  static ThemeData darkTheme = ThemeData(
-    primarySwatch: Colors.blue,
+  /// Tema oscuro principal, coherente con la paleta de AppColors.
+  static final ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: AppColors.accentColor,
     scaffoldBackgroundColor: AppColors.primaryDark,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
+      backgroundColor: AppColors.primaryDark,
+      foregroundColor: AppColors.textPrimary,
       elevation: 0,
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.dark,
-      ),
+      centerTitle: true,
     ),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
-      bodyMedium: TextStyle(color: Colors.white),
-      titleLarge: TextStyle(color: Colors.white),
-      titleMedium: TextStyle(color: Colors.white),
+      bodyLarge: TextStyle(color: AppColors.textPrimary, fontSize: 16),
+      bodyMedium: TextStyle(color: AppColors.textSecondary, fontSize: 14),
+      titleLarge: TextStyle(color: AppColors.textPrimary, fontSize: 24, fontWeight: FontWeight.bold),
+      titleMedium: TextStyle(color: AppColors.textPrimary, fontSize: 18),
     ),
-  );
-
-  static ThemeData lightTheme = ThemeData(
-    primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      elevation: 0,
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light,
-      ),
+    iconTheme: const IconThemeData(color: AppColors.textPrimary),
+    colorScheme: ColorScheme.dark(
+      primary: AppColors.accentColor,
+      background: AppColors.primaryDark,
+      surface: AppColors.secondaryDark,
+      onPrimary: AppColors.textPrimary,
+      onSurface: AppColors.textPrimary,
     ),
+    useMaterial3: true,
   );
 }
